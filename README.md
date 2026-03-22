@@ -31,3 +31,28 @@ Como na área de desenvolvimento de software não existe uma "bala de prata" (um
 ### ⚠️ Desvantagens:
 * **O "God Object" (Objeto Deus):** Este é o maior risco do Mediator. Se o sistema crescer demasiado e o programador não tiver cuidado, a classe do Mediador torna-se num "monstro" gigante e super complexo que sabe fazer de tudo. Se o Mediador tiver milhares de linhas de código, torna-se um pesadelo para manter.
 * **Complexidade Inicial:** Para ecrãs ou sistemas muito simples, criar interfaces, componentes e uma classe mediadora é escrever código a mais sem necessidade.
+
+## 4. O Problema
+
+Para entender a verdadeira necessidade do Mediator, imagine um cenário muito comum na vida de qualquer programador: a criação de uma **Tela de Cadastro de Clientes** usando WPF ou Windows Forms. Nessa tela, você tem alguns elementos visuais básicos:
+
+* Uma lista (como um *DataGrid*) exibindo os clientes cadastrados.
+* Caixas de texto (*TextBox*) para visualizar e editar os dados.
+* Botões de ação, como "Salvar" e "Excluir".
+
+Se programamos essa tela do jeito "tradicional", fazendo as ligações de forma direta, a lógica do sistema vai ficar completamente espalhada. Pense no fluxo:
+1. Quando o usuário clica em um cliente na lista, o código dessa lista precisa acessar diretamente as caixas de texto para preenchê-las e, logo em seguida, ir até o botão "Excluir" para ativá-lo.
+2. Da mesma forma, assim que alguém digita qualquer coisa em uma caixa de texto, ela precisa "avisar" o botão "Salvar" para que ele fique clicável.
+3. E, por fim, quando o botão "Salvar" é pressionado, ele próprio tem a obrigação de limpar os campos de texto e mandar a lista se atualizar.
+
+O grande perigo do **alto acoplamento** é que o código vira um verdadeiro **"prato de espaguete"**: se puxa um fio, a macarronada toda vem junto. Se amanhã o cliente pedir para adicionar um simples botão de "Novo Cliente", você terá que abrir e alterar o código da lista, das caixas de texto e dos outros botões para ensiná-los a interagir com essa nova peça. Isso torna o sistema péssimo para dar manutenção e aumenta drasticamente as chances de criar novos *bugs* toda vez que uma alteração é feita.
+
+---
+
+## 5. A Solução
+
+Para resolver o problema do "código espaguete" e do alto acoplamento, o padrão **Mediator** propõe uma solução radical, mas muito inteligente: **proibir totalmente que os componentes da tela conversem entre si**. Na arquitetura do Mediator, todas as ligações diretas são cortadas. 
+
+A solução consiste em criar uma **nova classe central**, que chamamos de Mediador. A partir desse momento, os componentes da nossa tela passam a conhecer apenas e exclusivamente a interface do Mediador.
+
+Com essa mudança, a arquitetura do sistema deixa de ser uma teia bagunçada e passa a ter o formato de uma **"estrela"**, onde todas as informações convergem para o centro. Isso garante organização, previsibilidade e torna muito mais fácil descobrir onde um erro está acontecendo, já que toda a lógica de comunicação está em um único lugar.
