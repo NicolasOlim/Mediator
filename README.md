@@ -53,3 +53,19 @@ Para resolver o problema do "código espaguete" e do alto acoplamento, o padrão
 A solução consiste em criar uma **nova classe central**, que chamamos de Mediador. A partir desse momento, os componentes da nossa tela passam a conhecer apenas e exclusivamente a interface do Mediador.
 
 Com essa mudança, a arquitetura do sistema deixa de ser uma teia bagunçada e passa a ter o formato de uma **"estrela"**, onde todas as informações convergem para o centro. Isso garante organização, previsibilidade e torna muito mais fácil descobrir onde um erro está acontecendo, já que toda a lógica de comunicação está em um único lugar.
+
+## 6. Porque Utilizar o C# e WPF
+
+Ao escolher o padrão **Mediator** numa aplicação desenvolvida em **C#** com a interface gráfica em **WPF**, não se trata apenas de uma formalidade para cumprir os requisitos do trabalho; é uma decisão extremamente estratégica e alinhada com as melhores práticas exigidas no mercado de trabalho profissional. 
+
+A natureza do WPF é fortemente baseada em eventos. Sem um controlo rigoroso, o código por trás da interface gráfica transforma-se rapidamente numa enorme e confusa lista de métodos. Eis os principais motivos para esta escolha:
+
+* **Desacoplamento de Componentes UI:** No WPF, é comum dividir o ecrã em partes independentes chamadas *UserControls*. O Mediator permite que estes componentes interajam entre si sem precisarem de se conhecer ou instanciar. A comunicação fica exclusivamente a cargo do Mediador.
+* **Centralização das Regras de Interação:** Em vez de espalhar a lógica de funcionamento por vários eventos da interface, o Mediator concentra todas as regras num único ficheiro. Se uma validação mudar, basta alterar a classe do Mediador, poupando horas de procura no código.
+* **Facilidade de Manutenção e Evolução:** Adicionar novos elementos ao ecrã torna-se muito mais simples e seguro. Basta criar o novo componente e ligá-lo ao Mediador, sem necessidade de reescrever a lógica dos componentes mais antigos. Isto reduz drasticamente o risco de criar novos erros (*bugs*) nas atualizações.
+
+---
+
+## 7. Conclusão
+
+A aplicação do padrão **Mediator** neste projeto demonstrou, na prática, como conceitos teóricos de engenharia de software podem resolver problemas reais de alto acoplamento em interfaces WPF. O resultado é um código mais limpo, profissional e preparado para futuras manutenções.
