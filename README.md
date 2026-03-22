@@ -40,12 +40,9 @@ Para entender a verdadeira necessidade do Mediator, imagine um cenário muito co
 * Caixas de texto (*TextBox*) para visualizar e editar os dados.
 * Botões de ação, como "Salvar" e "Excluir".
 
-Se programamos essa tela do jeito "tradicional", fazendo as ligações de forma direta, a lógica do sistema vai ficar completamente espalhada. Pense no fluxo:
-1. Quando o usuário clica em um cliente na lista, o código dessa lista precisa acessar diretamente as caixas de texto para preenchê-las e, logo em seguida, ir até o botão "Excluir" para ativá-lo.
-2. Da mesma forma, assim que alguém digita qualquer coisa em uma caixa de texto, ela precisa "avisar" o botão "Salvar" para que ele fique clicável.
-3. E, por fim, quando o botão "Salvar" é pressionado, ele próprio tem a obrigação de limpar os campos de texto e mandar a lista se atualizar.
+Se programamos essa tela do jeito "tradicional", fazendo as ligações de forma direta, a lógica do sistema vai ficar completamente espalhada. Pense no fluxo: quando o usuário clica em um cliente na lista, o código dessa lista precisa acessar diretamente as caixas de texto para preenchê-las e, logo em seguida, ir até o botão "Excluir" para ativá-lo. Da mesma forma, assim que alguém digita qualquer coisa em uma caixa de texto, ela precisa "avisar" o botão "Salvar" para que ele fique clicável. E, por fim, quando o botão "Salvar" é pressionado, ele próprio tem a obrigação de limpar os campos de texto e mandar a lista se atualizar.
+O grande perigo do alto acoplamento é que o  código vira um  "prato de espaguete": se  puxa um fio, a macarronada toda vem junto. Se amanhã o cliente pedir para adicionar um simples botão de "Novo Cliente",  terá que abrir e alterar o código da lista, das caixas de texto e dos outros botões para ensiná-los a interagir com essa nova peça. Isso torna o sistema péssimo para dar manutenção e aumenta drasticamente as chances de criar novos bugs toda vez que uma alteração é feita.
 
-O grande perigo do **alto acoplamento** é que o código vira um verdadeiro **"prato de espaguete"**: se puxa um fio, a macarronada toda vem junto. Se amanhã o cliente pedir para adicionar um simples botão de "Novo Cliente", você terá que abrir e alterar o código da lista, das caixas de texto e dos outros botões para ensiná-los a interagir com essa nova peça. Isso torna o sistema péssimo para dar manutenção e aumenta drasticamente as chances de criar novos *bugs* toda vez que uma alteração é feita.
 
 ---
 
