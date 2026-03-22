@@ -1,0 +1,56 @@
+﻿<Window x:Class="Atividade_Mediator.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d"
+        Title="Sistema de Cadastro - Padrão Mediator" 
+        Height="300" Width="450"
+        WindowStartupLocation="CenterScreen"
+        Background="#F5F5F5">
+
+    <Border Padding="30">
+        <StackPanel>
+            <TextBlock Text="Novo Cadastro" 
+                       FontSize="24" 
+                       FontWeight="Bold" 
+                       Foreground="#333333" 
+                       Margin="0,0,0,20" 
+                       HorizontalAlignment="Center"/>
+
+            <Label Content="Nome do Cliente:" 
+                   FontSize="14" 
+                   Foreground="#666666"/>
+
+            <TextBox Text="{Binding NomeCliente, UpdateSourceTrigger=PropertyChanged}" 
+                     Height="35" 
+                     Margin="0,5,0,25" 
+                     VerticalContentAlignment="Center"
+                     Padding="5,0"
+                     FontSize="14"
+                     BorderBrush="#CCCCCC"/>
+
+            <Button Content="SALVAR CLIENTE" 
+                    Height="45" 
+                    Background="#007ACC" 
+                    Foreground="White" 
+                    FontSize="14" 
+                    FontWeight="SemiBold"
+                    Cursor="Hand"
+                    Click="Button_Click">
+                <Button.Resources>
+                    <Style TargetType="Border">
+                        <Setter Property="CornerRadius" Value="5"/>
+                    </Style>
+                </Button.Resources>
+            </Button>
+
+            <TextBlock Text="Implementando o Padrão Mediator (Alexander Shvets)" 
+                       FontSize="10" 
+                       Foreground="#999999" 
+                       Margin="0,20,0,0" 
+                       HorizontalAlignment="Center" 
+                       FontStyle="Italic"/>
+        </StackPanel>
+    </Border>
+</Window>
