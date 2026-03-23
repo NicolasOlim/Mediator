@@ -14,29 +14,46 @@ using Atividade_Mediator.Mediators;
 
 namespace Atividade_Mediator
 {
-    /// <summary>
-    /// Interaction logic for MainWindow.xaml
-    /// </summary>
     public partial class MainWindow : Window
     {
         public MainWindow()
         {
             InitializeComponent();
 
+            
             var mediador = new CadastroMediator();
-            var vm = new CadastroViewModel(mediador);
-            mediador.RegistrarViewModel(vm);
 
-            this.DataContext = vm;
+            
+            var cadastroVM = new CadastroViewModel(mediador);
+            var listaVM = new ListaViewModel(mediador);
+            var statusVM = new StatusViewModel();
+            var pesquisaVM = new PesquisaViewModel(mediador);
+
+            
+            mediador.RegistrarCadastro(cadastroVM);
+            mediador.RegistrarLista(listaVM);
+            mediador.RegistrarStatus(statusVM);
+            mediador.RegistrarPesquisa(pesquisaVM);
+
+            
+            listaVM.CarregarDoArquivo();
+
+            PainelCadastro.DataContext = cadastroVM;
+            PainelLista.DataContext = listaVM;
+            PainelStatus.DataContext = statusVM;
+            PainelPesquisa.DataContext = pesquisaVM;
         }
 
-        // Este método resolve o erro CS1061
-        private void Button_Click(object sender, RoutedEventArgs e)
+        private void BtnSalvar_Click(object sender, RoutedEventArgs e)
         {
-            if (this.DataContext is CadastroViewModel vm)
-            {
-                vm.Salvar(); 
-            }
+            if (PainelCadastro.DataContext is CadastroViewModel vm)
+                vm.Salvar();
+        }
+
+        private void BtnExcluir_Click(object sender, RoutedEventArgs e)
+        {
+            if (PainelCadastro.DataContext is CadastroViewModel vm)
+                vm.Excluir();
         }
     }
 }

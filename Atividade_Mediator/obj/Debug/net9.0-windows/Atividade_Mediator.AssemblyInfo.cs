@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("Atividade_Mediator")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+a3f49cb3a4f6944efde2f153ef16a5586e31efdf")]
 [assembly: System.Reflection.AssemblyProductAttribute("Atividade_Mediator")]
 [assembly: System.Reflection.AssemblyTitleAttribute("Atividade_Mediator")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

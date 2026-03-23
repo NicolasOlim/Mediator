@@ -17,3 +17,4 @@ C:\Users\Nicolas\Desktop\Visual _Studios\Mediator\Atividade_Mediator\obj\Debug\n
 C:\Users\Nicolas\Desktop\Visual _Studios\Mediator\Atividade_Mediator\obj\Debug\net9.0-windows\Atividade_Mediator.pdb
 C:\Users\Nicolas\Desktop\Visual _Studios\Mediator\Atividade_Mediator\obj\Debug\net9.0-windows\Atividade_Mediator.genruntimeconfig.cache
 C:\Users\Nicolas\Desktop\Visual _Studios\Mediator\Atividade_Mediator\obj\Debug\net9.0-windows\ref\Atividade_Mediator.dll
+C:\Users\Nicolas\Desktop\Visual _Studios\Mediator\Atividade_Mediator\obj\Debug\net9.0-windows\Atividade_Mediator.sourcelink.json

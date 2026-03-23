@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Atividade_Mediator.Models
 {
-    internal class Cliente
+    public class Cliente
     {
         public string Nome { get; set; }
     }

@@ -18,11 +18,7 @@ namespace Atividade_Mediator.Viewmodels
         public string NomeCliente
         {
             get => _nomeCliente;
-            set
-            {
-                _nomeCliente = value;
-                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(NomeCliente)));
-            }
+            set { _nomeCliente = value; PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(NomeCliente))); }
         }
 
         public CadastroViewModel(IMediator mediator)
@@ -33,6 +29,11 @@ namespace Atividade_Mediator.Viewmodels
         public void Salvar()
         {
             _mediator.Notificar(this, "ClienteSalvo");
+        }
+
+        public void Excluir()
+        {
+            _mediator.Notificar(this, "ClienteExcluido");
         }
     }
 }
